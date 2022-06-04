@@ -6,9 +6,15 @@ if (isset($_POST['btn'])) {
     $userCourse = $_POST['user_course'];
     $userBatch = $_POST['user_batch'];
 }
-
 ?>
-
+<?php
+if (isset($_POST["btn"])) {
+    // print_r($_FILES['profile_photo']); -> Check Coad
+    $imgName = $_FILES['profile_photo']['name'];
+    $temName = $_FILES['profile_photo']['tmp_name'];
+    move_uploaded_file($temName, "img/" . $imgName);
+}
+?>
 
 
 
@@ -38,7 +44,9 @@ if (isset($_POST['btn'])) {
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="./img/prince.png" class="card-img" alt="" srcset="">
+                                    <img src="img/<?php if (isset($imgName)) {
+                                                        echo $imgName;
+                                                    }; ?>" class="card-img" alt="img" srcset="">
                                 </div>
                                 <div class="col-md-8">
                                     <h5>Name : <?php if (isset($userName)) {

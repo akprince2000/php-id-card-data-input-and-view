@@ -18,7 +18,9 @@
                     <div class="card text-center shadow-lg border mt-5" style="width: 25rem;">
                         <h2>Create a virtual Id Card</h2>
                         <div class="card-body">
-                            <form action="id_card.php" method="POST">
+                            <!--file upload -->
+                            <form action="id_card.php" method="POST" enctype="multipart/form-data">
+
                                 <label>Name : <span>*</span>
                                     <input type="text" name="user_name" id="" required>
                                 </label>
@@ -33,6 +35,9 @@
                                 </label>
                                 <label>Batch No : <span>*</span>
                                     <input type="number" name="user_batch" id="" required>
+                                </label></br></br>
+                                <label>Photo : <span>*</span>
+                                    <input type="file" name="profile_photo" id="">
                                 </label></br></br>
                                 <input type="submit" name="btn" value="Submit">
                             </form>
